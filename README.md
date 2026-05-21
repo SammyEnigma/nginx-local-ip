@@ -99,6 +99,16 @@ A local image is created the first time the command executed, and there is no ne
 
 If you do need to rebuild the container, append `--build` on to your compose call: ` docker compose up --build`.
 
+When doing a release, be sure to bump the version in the `compose.yaml` file on the `image:` line. This will forcibly rebuild the image for anyone using it downstream without them needing to know about the infrequently used `--build` flag:
+
+```dockerfile
+services:
+  nginx-local-ip:
+    container_name: nginx-local-ip 
+    image: medicmobile/nginx-local-ip:1.0.0 # bump this version every release, forces image rebuild
+    build: .
+```
+
 Requirements
 ------------
 
