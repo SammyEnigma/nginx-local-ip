@@ -1,7 +1,7 @@
 services:
   nginx-local-ip:
     container_name: nginx-local-ip 
-    image: medicmobile/nginx-local-ip:1.0.0 # bump this version every release, forces image rebuild
+    image: medicmobile/nginx-local-ip:1.0.1 # bump this version every release, forces image rebuild
     build: .
     ports:
       - "${HTTP}:80"
